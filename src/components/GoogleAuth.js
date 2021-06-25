@@ -34,7 +34,8 @@ class GoogleAuth extends Component {
 
   decideAuthState = (isSignedIn) => {
     if (isSignedIn) {
-      this.props.signIn();
+      const userId = this.auth.currentUser.get().getId();
+      this.props.signIn(userId);
     } else {
       this.props.signOut();
     }
