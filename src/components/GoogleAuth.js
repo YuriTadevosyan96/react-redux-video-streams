@@ -56,10 +56,6 @@ class GoogleAuth extends Component {
     });
   }
 
-  componentWillUnmount() {
-    this.auth.isSignedIn.get() && this.auth.signOut();
-  }
-
   render() {
     return <div>{this.renderAuthButton()}</div>;
   }
