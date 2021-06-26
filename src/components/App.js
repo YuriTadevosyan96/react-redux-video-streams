@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
 import history from '../history';
@@ -16,11 +16,13 @@ function App() {
       <Container>
         <div>
           <Header />
-          <Route path="/" exact component={StreamList} />
-          <Route path="/streams/new" component={StreamCreate} />
-          <Route path="/streams/edit/:id" component={StreamEdit} />
-          <Route path="/streams/delete/:id" component={StreamDelete} />
-          <Route path="/streams/show/:id" component={StreamShow} />
+          <Switch>
+            <Route path="/" exact component={StreamList} />
+            <Route path="/streams/new" component={StreamCreate} />
+            <Route path="/streams/edit/:id" component={StreamEdit} />
+            <Route path="/streams/delete/:id" component={StreamDelete} />
+            <Route path="/streams/:id" component={StreamShow} />
+          </Switch>
         </div>
       </Container>
     </Router>

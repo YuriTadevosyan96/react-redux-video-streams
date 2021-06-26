@@ -27,7 +27,9 @@ class StreamList extends Component {
         {/* Show options only if user is owner */}
         <Icon name="camera" size="large" className="middle aligned" />
         <List.Content>
-          <Header as="h3">{stream.title}</Header>
+          <Header as="h3">
+            <Link to={`/streams/${stream.id}`}>{stream.title}</Link>
+          </Header>
           <p>{stream.description}</p>
         </List.Content>
       </List.Item>

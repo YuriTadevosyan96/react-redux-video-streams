@@ -12,7 +12,7 @@ function StreamDelete(props) {
   const stream = useSelector((state) => state.streams[streamId]);
 
   useEffect(() => {
-    if (!stream) {
+    if (!stream && user.isSignedIn) {
       dispatch(getSingleStream(streamId));
     }
   });
@@ -44,7 +44,7 @@ function StreamDelete(props) {
     <Modal
       onDismiss={handleDismiss}
       title="Delete Stream"
-      content="Are you sure you want to delete this stream?"
+      content={`Are you sure you want to delete stream with title: ${stream.title}`}
       actions={actions()}
     />
   );
